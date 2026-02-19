@@ -18,7 +18,15 @@ pipeline {
         sh 'mvn clean package'
       }
     }
-  }
+
+    stage('Deploy to Dev (Mock)') {
+       when { branch 'main' }
+        steps {
+					echo "Mock deploy to Kubernetes..."
+          echo "kubectl apply -f k8s/deployment.yaml"
+        }
+		}
+	}
 
   post {
     success {
