@@ -22,11 +22,11 @@ pipeline {
     stage('Deploy to Dev (Mock)') {
        when { branch 'main' }
         steps {
-					echo "Mock deploy to Kubernetes..."
+		  echo "Mock deploy to Kubernetes..."
           echo "kubectl apply -f k8s/deployment.yaml"
         }
-		}
 	}
+}
 
   post {
     success {
